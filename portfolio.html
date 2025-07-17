@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahaf Kasem - Portfolio</title> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/portfolio.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+        <a href="#hero" class="logo">
+            <img src="img/logo.png" alt="Rahaf Kasem Logo">
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#tools">My Toolkit</a></li> <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</header>
+
+  <section id="hero" class="hero-section reveal">
+    <div class="container hero-content">
+        <div class="hero-text fade-in-element">
+            <h4>Hello and welcome!</h4>
+            <span class="inline"><h1 class="highlight">I am Rahaf Kasem</h1></span>
+            <h4>Full Stack Developer</h4>
+            <p class="lead">
+                I’m a passionate and ambitious Information Technology student with a growing love for AI and creative problem-solving.
+            </p>
+             <a href="path/to/your/cv.pdf" class="download-cv" download> <i class="fas fa-download"></i> Download CV
+            </a>
+            <div class="social-links">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="hero-image-container fade-in-element">
+            <div class="hero-planet">
+                <img src="img/hero.png" alt="Rahaf Kasem Personal Photo" class="planet-surface-img">
+                <div class="planet-atmosphere"></div>
+                <div class="orbit orbit-1">
+                    <div class="moon moon-1"></div>
+                </div>
+                <div class="orbit orbit-2">
+                    <div class="moon moon-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section id="about" class="about-section reveal section-padding"> <div class="container">
+        <h2 class="fade-in-element">About Me</h2>
+        <p class="slider-quote fade-in-element">
+            "I believe that passion, patience and persistence are the keys to any dream and I'm walking that path, one step at a time."
+            <br>This could be about your background, your journey into IT, or what drives you.
+        </p>
+
+        <div class="cards-wrapper fade-in-element">
+            <div class="cards">
+                <div class="card active">
+                    <img src="img/about 1.png" alt="Mobile App Design" />
+                    <h3>Mobile App Design</h3>
+                </div>
+                <div class="card">
+                    <img src="img/about 2.jpg" alt="Content Design" />
+                    <h3>Content Design</h3>
+                </div>
+                <div class="card">
+                    <img src="img/about 3.png" alt="Web Design" />
+                    <h3>Web Design</h3>
+                </div>
+            </div>
+
+            <div class="dots">
+                <button class="dot active" onclick="selectCard(0)" aria-label="Select Card 1"></button>
+                <button class="dot" onclick="selectCard(1)" aria-label="Select Card 2"></button>
+                <button class="dot" onclick="selectCard(2)" aria-label="Select Card 3"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section id="thinking-box" class="thinking-box-section reveal section-padding"> <div class="container">
+        <h2 class="fade-in-element">Thinking Outside the Box</h2>
+        <div class="thinking-box-content">
+            <div class="thinking-box-text fade-in-element">
+                <p>
+                    I’m a passionate and ambitious Information Technology student with a growing love for AI and creative problem-solving.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae, et incidunt asperiores similique magnam provident eius atque libero, voluptates reprehenderit maxime culpa voluptatum ut molestiae voluptatem cupiditate! Maxime, sequi?
+                </p>
+            </div>
+            <div class="thinking-box-image fade-in-element">
+                <img src="img/box'.png" alt="Black box with question mark and blue light">
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-box fade-in-element">
+                <h3>6</h3>
+                <p>Client Requests</p>
+            </div>
+            <div class="stat-box fade-in-element">
+                <h3>3</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-box fade-in-element">
+                <h3>4.5</h3>
+                <p>Star Rating</p>
+            </div>
+            <div class="stat-box fade-in-element">
+                <h3>8</h3>
+                <p>Months of Experience</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section id="portfolio-slider" class="portfolio-slider-section reveal section-padding"> <div class="container">
+        <h2 class="fade-in-element">Latest Projects</h2> <p class="section-subtitle fade-in-element"> Peek into my creative world 🚀</p>
+
+        <div class="portfolio-slider-container fade-in-element">
+            <div class="slider-wrapper">
+                <div class="slider-items">
+                  <div class="slider-item"><img src="img/1.jpg" alt="Work 1"></div>
+                  <div class="slider-item"><img src="img/2.jpg" alt="Work 2"></div>
+                  <div class="slider-item"><img src="img/3.jpg" alt="Work 3"></div>
+                  <div class="slider-item"><img src="img/4.jpg" alt="Work 4"></div>
+                  <div class="slider-item"><img src="img/5.jpg" alt="Work 5"></div>
+                  <div class="slider-item"><img src="img/6.jpg" alt="Work 6"></div>
+              </div>
+          </div>
+          <button class="slider-arrow left-arrow" aria-label="Previous Slide">&#10094;</button>
+          <button class="slider-arrow right-arrow" aria-label="Next Slide">&#10095;</button>
+      </div>
+  </div>
+</section>
+
+  <section id="testimonials" class="testimonials-section container reveal section-padding"> <div class="testimonial-content fade-in-element">
+      <h2>Testimonials</h2>
+      <p class="subtitle">What Clients Say About Me</p> <p class="testimonial-text" id="testimonialText">
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elementum..."
+      </p>
+      <h4 id="clientName">JOHN SMITH</h4>
+  </div>
+
+  <div class="testimonial-slider fade-in-element">
+      <button class="arrow left-arrow" onclick="prevTestimonial()" aria-label="Previous Testimonial">&#10094;</button>
+      <div class="main-avatar">
+          <img id="mainAvatar" src="img/person 1.png" alt="Client Avatar"> </div>
+      <div class="small-avatars">
+          <img src="img/person 1.png" alt="Client 1 Avatar" class="active">
+          <img src="img/person 4.png" alt="Client 2 Avatar">
+          <img src="img/person 3.png" alt="Client 3 Avatar">
+          <img src="img/person 2.png" alt="Client 4 Avatar">
+      </div>
+      <button class="arrow right-arrow" onclick="nextTestimonial()" aria-label="Next Testimonial">&#10095;</button>
+  </div>
+</section>
+
+  <section id="tools" class="my-toolkit-section section-padding reveal"> <div class="container">
+      <h2 class="fade-in-element">My Toolkit</h2>
+      <p class="section-subtitle fade-in-element">The technologies and tools I work with.</p>
+
+      <div class="toolkit-category fade-in-element"> <h3>Frontend Development</h3>
+          <div class="toolkit-grid"> <div class="tool-card">
+                  <div class="tool-card-front">
+                      <i class="fab fa-html5"></i>
+                      <span>HTML5</span>
+                  </div>
+                  <div class="tool-card-back">
+                      <h4>HTML5</h4>
+                      <p>For building the structure of modern web pages and applications.</p>
+                      <div class="skill-level">
+                          <span>Proficiency:</span> <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="tool-card">
+                  <div class="tool-card-front">
+                      <i class="fab fa-css3-alt"></i>
+                      <span>CSS3</span>
+                  </div>
+                  <div class="tool-card-back">
+                      <h4>CSS3</h4>
+                      <p>For styling and designing attractive, responsive web pages.</p>
+                      <div class="skill-level">
+                          <span>Proficiency:</span> <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="tool-card">
+                  <div class="tool-card-front">
+                      <i class="fab fa-js"></i>
+                      <span>JavaScript</span>
+                  </div>
+                  <div class="tool-card-back">
+                      <h4>JavaScript</h4>
+                      <p>For adding interactivity and dynamic behavior to websites.</p>
+                      <div class="skill-level">
+                          <span>Proficiency:</span> <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="tool-card">
+                  <div class="tool-card-front">
+                      <i class="fab fa-react"></i>
+                      <span>React</span>
+                  </div>
+                  <div class="tool-card-back">
+                      <h4>React</h4>
+                      <p>A library for building interactive and flexible user interfaces.</p>
+                      <div class="skill-level">
+                          <span>Proficiency:</span> <span class="stars">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+                      </div>
+                  </div>
+              </div>
+              </div>
+      </div>
+
+      <div class="toolkit-category fade-in-element"> <h3>Backend Development</h3>
+          <div class="toolkit-grid"> <div class="tool-card">
+                  <div class="tool-card-front">
+                      <i class="fab fa-node-js"></i>
+                      <span>Node.js</span>
+                  </div>
+                  <div class="tool-card-back">
+                      <h4>Node.js</h4>
+                      <p>Server-side JavaScript runtime for fast, scalable applications.</p>
+                      <div class="skill-level">
+                          <span>Proficiency:</span> <span class="stars">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="tool-card">
+                  <div class="tool-card-front">
+                      <i class="fab fa-python"></i>
+                      <span>Python</span>
+                  </div>
+                  <div class="tool-card-back">
+                      <h4>Python</h4>
+                      <p>Versatile language, great for web development and data analysis.</p>
+                      <div class="skill-level">
+                          <span>Proficiency:</span> <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                      </div>
+                  </div>
+              </div>
+              <div class="tool-card">
+                  <div class="tool-card-front">
+                      <i class="fas fa-database"></i>
+                      <span>PostgreSQL</span>
+                  </div>
+                  <div class="tool-card-back">
+                      <h4>PostgreSQL</h4>
+                      <p>Powerful, open-source relational database system.</p>
+                      <div class="skill-level">
+                          <span>Proficiency:</span> <span class="stars">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+                      </div>
+                  </div>
+              </div>
+              </div>
+      </div>
+      <div class="toolkit-category fade-in-element">
+        <h3>Design Tools</h3>
+        <div class="toolkit-grid">
+            <div class="tool-card">
+                <div class="tool-card-front">
+                    <i class="fab fa-figma"></i>
+                    <span>Figma</span>
+                </div>
+                <div class="tool-card-back">
+                    <h4>Figma</h4>
+                    <p>Collaborative interface design tool for web and mobile.</p>
+                    <div class="skill-level">
+                        <span>Proficiency:</span> <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+      </div>
+  </div>
+</section>
+
+  <section id="contact" class="contact-footer-section section-padding reveal">
+<div class="container">
+    <h2 class="fade-in-element">Get in Touch</h2>
+    <p class="section-subtitle fade-in-element">Have a project in mind or just want to say hello?</p>
+
+    <div class="contact-content">
+        <div class="contact-info fade-in-element">
+            <h3>Contact Information</h3>
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            <p><i class="fas fa-phone-alt"></i> Phone: <a href="tel:+1234567890">+123 456 7890</a></p> <p><i class="fas fa-map-marker-alt"></i> Location: Your City, Your Country</p>
+
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+        </div>
+
+        <div class="contact-form fade-in-element">
+            <h3>Send Me a Message</h3>
+            <form action="#" method="post"> <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                 <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="send-message-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-text fade-in-element">
+        <p>&copy; 2025 Rahaf Kasem. All rights reserved.</p> </div>
+</div>
+</section>
+
+<script src="portfolio.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1266 @@
+/* ====================================================================== */
+/* ======================= Global Styles / أنماط عامة =================== */
+/* ====================================================================== */
+:root {
+    --text-light: #f5f5f5;
+    --text-medium: #ccc;
+    --primary-color: #00aaff; /* Main accent color */
+    --primary-color-dark: #0077cc; /* Darker shade for hover states */
+    --primary-color-rgb: 0, 170, 255; /* RGB for use in rgba() */
+    --extracted-dark-blue: #012B37; /* Deep blue, good for backgrounds */
+    --extracted-gray: #959595; /* Medium gray for text or subtle elements */
+    --extracted-light-gray: #D9D9D9; /* Light gray for borders or highlights */
+    --contact-button-border: rgba(255, 255, 255, 0.4); /* Lighter border for contact button */
+    --background-dark: #0a121a; /* Very dark blue, almost black for main background */
+    --background-section-dark: #0f1a24; /* Slightly lighter dark blue for section backgrounds */
+    --card-hover-glow: rgba(var(--primary-color-rgb), 0.25); /* Glow effect for cards */
+    --star-color: #FFD700; /* Gold color for rating stars */
+
+    /* Portfolio specific, can be integrated or kept separate */
+    --portfolio-item-width: 320px;
+    --portfolio-item-height: 400px;
+    --portfolio-transition-duration: 0.6s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif; /* Primary font */
+    line-height: 1.7;
+    color: var(--text-light);
+    background-image: radial-gradient(circle at center, rgba(var(--primary-color-rgb), 0.15) 0%, var(--background-dark) 70%); /* Subtle radial gradient */
+    background-color: var(--background-dark);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 60px; /* For fixed header */
+    text-align: left; /* Default text-align for LTR */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h2 { /* General Section Title / عنوان القسم العام */
+    font-size: clamp(28px, 4vw, 36px); /* Responsive font size */
+    margin-bottom: 20px;
+    color: var(--text-light);
+    text-align: center;
+    position: relative; /* For pseudo-elements if needed for underline */
+}
+/* Optional: Underline effect for section titles
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+*/
+
+.section-subtitle { /* General Section Subtitle / العنوان الفرعي للقسم */
+    font-size: clamp(16px, 2.5vw, 18px);
+    color: var(--text-medium);
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 50px; /* Increased bottom margin */
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.section-padding { /* Uniform padding for sections / مسافات موحدة للأقسام */
+    padding-top: 80px; /* Increased padding */
+    padding-bottom: 80px;
+}
+
+/* ====================================================================== */
+/* =============== Fade-in on Scroll / تأثير الظهور عند التمرير ========== */
+/* ====================================================================== */
+.fade-in-element,
+.reveal {
+    opacity: 0;
+    transform: translateY(35px); /* Slightly more pronounced effect */
+    transition: opacity 0.7s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1); /* Smoother transition */
+}
+
+.fade-in-element.is-visible,
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ====================================================================== */
+/* =================== Header / ترويسة الموقع =========================== */
+/* ====================================================================== */
+.site-header {
+    background: transparent;
+    padding: 12px 0; /* Slightly more padding */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease;
+}
+
+.site-header.scrolled {
+    background-color: rgba(10, 25, 40, 0.85); /* Dark blue, slightly transparent */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Softer shadow */
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 40px; /* Adjust if logo dimensions change */
+}
+
+.logo img {
+    display: block;
+    max-height: 100%;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+.logo:hover img {
+    transform: scale(1.05); /* Slight grow on hover */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav li {
+    margin-left: 25px; /* Increased spacing */
+}
+
+.main-nav li:last-child {
+    margin-left: 35px;
+}
+
+.main-nav li:last-child a {
+    border: 1px solid var(--contact-button-border);
+    border-radius: 5px;
+    padding: 9px 18px; /* Slightly larger button */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    color: var(--text-light);
+}
+
+.main-nav li:last-child a:hover {
+    background-color: var(--primary-color);
+    color: var(--background-dark); /* Ensure text is readable on primary color */
+    border-color: var(--primary-color);
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-medium);
+    font-weight: 400;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    position: relative; /* For underline effect */
+}
+
+.main-nav li:not(:last-child) a::after { /* Underline effect on hover */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+.main-nav li:not(:last-child) a:hover::after {
+    width: 100%;
+}
+.main-nav li:not(:last-child) a:hover {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none; /* Shown in media query */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: var(--text-light);
+    padding: 5px;
+    z-index: 1001;
+}
+
+/* --- Responsive Header / ترويسة متجاوبة --- */
+@media (max-width: 768px) {
+    body { padding-top: 55px; } /* Adjust based on responsive header height */
+    .site-header { padding: 10px 0; }
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 25, 40, 0.98); /* More opaque for readability */
+        backdrop-filter: blur(10px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        padding: 15px 0; /* More padding for nav items */
+        flex-direction: column;
+        align-items: center;
+        z-index: 999;
+    }
+    .site-header.nav-open .main-nav { display: flex; }
+    .main-nav ul { flex-direction: column; align-items: center; width: 100%; }
+    .main-nav li { margin: 10px 0; width: 90%; text-align: center; } /* Full width items with some margin */
+    .main-nav li:last-child { margin-left: 0; margin-top: 15px; }
+    .main-nav li a { padding: 12px 0; border: none; border-radius: 0; color: var(--text-light); display: block; width: 100%; }
+    .main-nav li:last-child a { border: 1px solid var(--contact-button-border); border-radius: 5px; padding: 12px 20px; display: inline-block; width: auto; }
+    .menu-toggle { display: block; }
+}
+
+/* ====================================================================== */
+/* ================= Hero Section / القسم الرئيسي (الهيرو) =============== */
+/* ====================================================================== */
+/* Styles for .hero-section, .hero-content, .hero-text, social-links, hero-planet, orbits, moons */
+/* Most of these were provided and adjusted in previous steps, ensure they are clean */
+.hero-section {
+    padding: clamp(80px, 15vh, 120px) 0; /* Responsive padding */
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+    min-height: 90vh; /* Ensure it takes significant viewport height */
+    display: flex;
+    align-items: center;
+}
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: clamp(30px, 5vw, 60px); /* Responsive gap */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.hero-text {
+    flex: 1 1 50%;
+    max-width: 600px;
+    text-align: left;
+}
+.hero-text h4 {
+    font-size: clamp(20px, 3vw, 24px);
+    color: var(--text-medium);
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+.hero-text h1 {
+    font-size: clamp(38px, 6vw, 64px);
+    margin-bottom: 15px; /* Increased margin */
+    color: var(--text-light);
+    font-weight: 700;
+}
+.hero-text .highlight { /* Already defined, kept for clarity */
+    color: var(--text-light);
+}
+.hero-text .lead {
+    font-size: clamp(16px, 2.5vw, 18px);
+    font-weight: 400;
+    margin-bottom: 30px; /* Increased margin */
+    color: var(--extracted-gray);
+    line-height: 1.8;
+}
+.download-cv {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex; /* For icon alignment */
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    margin-bottom: 25px;
+    padding: 12px 24px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+.download-cv:hover {
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    transform: translateY(-2px);
+}
+.social-links {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 10px 0;
+}
+.social-links a {
+    color: var(--text-medium);
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(var(--text-light-rgb, 245,245,245), 0.3); /* Use RGB for text-light or define it */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--background-dark);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: scale(1.1) translateY(-2px);
+}
+
+/* --- Planet Hero Image Styles / أنماط صورة الكوكب في الهيرو --- */
+
+.hero-image-container {
+    flex: 1 1 350px; /* حجم مرن للحاوية الكلية */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px; /* ارتفاع أدنى لضمان ظهور التأثير */
+    position: relative; /* للسماح بتمركز الكوكب بشكل مطلق إذا لزم الأمر لاحقاً */
+}
+
+.hero-planet {
+   width: 280px; /* حجم الكوكب */
+    height: 280px;
+    border-radius: 50%;
+    position: relative;
+    background-color: var(--extracted-dark-blue, #012B37);
+    box-shadow: 0 0 30px rgba(var(--primary-color-rgb), 0.4),
+                inset 0 0 20px rgba(0,0,0,0.5),
+                inset 0 0 80px rgba(var(--primary-color-rgb),0.2);
+    display: flex; /* مهم لتوسيط الصورة إذا كانت أصغر */
+    justify-content: center; /* توسيط أفقي */
+    align-items: flex-end; /* محاذاة الصورة لأسفل الكوكب مبدئياً */
+    overflow: visible; /* !!! السماح للصورة بالخروج من الحدود !!! */
+        transition: transform 0.4s ease-out;
+}
+.hero-planet:hover {
+    transform: scale(1.03);
+}
+
+
+.planet-surface-img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain; /* لجعل الصورة تملأ الدائرة مع قص الأجزاء الزائدة */
+    border-radius: 50%; /* لضمان أن الصورة نفسها دائرية تماماً */
+    display: block;
+    /* opacity: 0.9; شفافية خفيفة للصورة لدمجها مع الكوكب */
+    z-index: 100;
+}
+
+.planet-atmosphere {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    box-shadow: 0 0 35px 10px rgba(var(--primary-color-rgb), 0.3),
+                0 0 50px 15px rgba(var(--primary-color-rgb), 0.2);
+    pointer-events: none;
+    z-index: 1; /* خلف الصورة ولكن فوق خلفية الكوكب */
+
+}
+
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%; /* لجعل المسار دائرياً */
+    border: 1px solid rgba(var(--primary-color-rgb), 0.25); /* لون وسمك المسار */
+    transform-origin: center center; /* نقطة دوران المسار */
+    pointer-events: none; /* المسارات لا تتفاعل مع الماوس */
+    /* ... existing styles ... */
+    z-index: 0; /* اجعل المدارات خلف الصورة البارزة والكوكب */
+                 /* أو z-index: 3; إذا أردتها أمام كل شيء */
+}
+
+
+.orbit-1 {
+    width: 130%; /* حجم المسار الأول (أكبر من الكوكب) */
+    height: 130%;
+    transform: translate(-50%, -50%) rotate(0deg); /* تمركز وبداية الدوران */
+    animation: orbit-rotate 20s linear infinite; /* أنيميشن الدوران */
+    z-index: 1;
+}
+
+.orbit-2 {
+    width: 165%; /* حجم المسار الثاني (أكبر من الأول) */
+    height: 165%;
+    transform: translate(-50%, -50%) rotate(45deg); /* دوران مبدئي مختلف */
+    animation: orbit-rotate 30s linear infinite reverse; /* سرعة واتجاه دوران مختلف */
+    border-style: dashed; /* يمكن تغيير شكل المسار */
+    border-color: rgba(var(--primary-color-rgb), 0.15);
+    z-index: 1;
+}
+
+/* يمكنك إضافة .orbit-3 بنفس الطريقة */
+
+.moon {
+    position: absolute;
+    border-radius: 50%; /* لجعل القمر دائرياً */
+    background-color: var(--extracted-light-gray, #D9D9D9);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7), inset 0 0 3px rgba(0,0,0,0.3);
+    pointer-events: auto; /* إذا أردت إضافة تفاعل للأقمار لاحقاً */
+}
+
+.orbit-1 .moon-1 {
+    width: 12px; /* حجم القمر الأول */
+    height: 12px;
+    /* تحديد موقع القمر على المسار */
+    top: -6px; /* (نصف ارتفاع القمر) ليكون على الخط */
+    left: 50%; /* في منتصف عرض المسار أفقياً */
+    transform: translateX(-50%); /* لضبط التمركز الأفقي للقمر */
+}
+
+.orbit-2 .moon-2 {
+    width: 15px; /* حجم القمر الثاني */
+    height: 15px;
+    /* تحديد موقع القمر على المسار في نقطة أخرى */
+    top: 50%;
+    right: -7.5px; /* (نصف عرض القمر) ليكون على الخط من اليمين */
+    transform: translateY(-50%); /* لضبط التمركز العمودي للقمر */
+}
+
+/* أنيميشن دوران المسارات */
+@keyframes orbit-rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* تعديلات على .hero-image القديمة في الوضع المتجاوب إذا لزم الأمر */
+@media (max-width: 992px) { /* Tablet and below / الأجهزة اللوحية وما دونها */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text {
+        text-align: center; /* Center text for LTR/RTL */
+        order: 2; /* Image first, then text / الصورة أولاً، ثم النص */
+    }
+    .hero-image-container {
+        order: 1; /* Image container first */
+        margin-bottom: 40px;
+        min-height: 300px; /* Adjust min-height for smaller planet */
+    }
+    .hero-planet {
+        width: 240px; /* Smaller planet */
+        height: 240px;
+    }
+    .planet-surface-img {
+        height: 300px; /* Adjust image height relative to new planet size */
+                       /* (e.g., 240px planet + 60px peek) */
+        width: 85%;    /* Adjust width if needed */
+    }
+    .planet-atmosphere { /* Adjust atmosphere based on new planet size */
+        width: calc(240px + 30px);
+        height: calc(240px + 30px);
+    }
+    .orbit-1 { width: calc(240px * 1.3); height: calc(240px * 1.3); }
+    .orbit-2 { width: calc(240px * 1.65); height: calc(240px * 1.65); }
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) { /* Small mobile / الهواتف الصغيرة */
+    .hero-planet {
+        width: 200px;
+        height: 200px;
+    }
+    .planet-surface-img {
+        height: 250px; /* (e.g., 200px planet + 50px peek) */
+        width: 80%;
+    }
+    .hero-image-container {
+        min-height: 260px;
+    }
+    .planet-atmosphere {
+        width: calc(200px + 25px);
+        height: calc(200px + 25px);
+        box-shadow: 0 0 25px 8px rgba(var(--primary-color-rgb), 0.3),
+                    0 0 40px 12px rgba(var(--primary-color-rgb), 0.2); /* Smaller glow */
+    }
+    .orbit-1 { width: calc(200px * 1.3); height: calc(200px * 1.3); }
+    .orbit-2 { display: none; } /* Hide second more complex orbit */
+    .moon { /* Smaller moons */
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.7), inset 0 0 2px rgba(0,0,0,0.3);
+    }
+    .orbit-1 .moon-1 { width: 10px; height: 10px; top: -5px; }
+}
+
+
+
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at center, rgba(40, 85, 99, 0.555), rgb(0, 0, 0));
+    border-radius: 50%;
+    z-index: -1; /* Ensure it's behind content */
+}
+
+
+/* ====================================================================== */
+/* ================= About Section / قسم "عني" ========================== */
+/* ====================================================================== */
+/* Styles for .about-section, .slider-quote, .cards-wrapper, .card, .dots */
+/* Most of these were good, minor clean-up and consistency checks */
+.about-section {
+    text-align: center;
+    background-color: var(--background-section-dark); /* Give it a distinct background */
+}
+.slider-quote {
+    font-size: clamp(17px, 2.8vw, 20px);
+    font-weight: 500; /* Not too bold */
+    color: var(--text-light);
+    margin-bottom: 50px;
+    line-height: 1.7;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cards-wrapper {
+    perspective: 1000px; /* For 3D effect on card hover if desired */
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: clamp(20px, 3vw, 30px); /* Responsive gap */
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+.card {
+    width: clamp(260px, 30vw, 300px); /* Responsive card width */
+    padding: 25px;
+    background: rgba(var(--primary-color-rgb), 0.03);
+    border: 1px solid rgba(var(--primary-color-rgb),0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Springy transition */
+    opacity: 0.75;
+    transform: translateY(0) scale(1);
+    border-top: 4px solid transparent;
+    min-height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.card.active, .card:hover { /* Combine active and hover states */
+    opacity: 1;
+    background: rgba(var(--primary-color-rgb), 0.1);
+    transform: translateY(-12px) scale(1.04);
+    box-shadow: 0 12px 30px var(--card-hover-glow);
+    border-top-color: var(--primary-color);
+}
+.card img {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+.card:hover img {
+    transform: scale(1.05);
+}
+.card h3 {
+    color: var(--text-medium);
+    font-size: clamp(17px, 2.5vw, 19px);
+    margin-top: auto;
+    transition: color 0.3s ease;
+}
+.card.active h3, .card:hover h3 {
+    color: var(--primary-color);
+}
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+.dot {
+    width: 12px; /* Circular dots */
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(var(--text-light-rgb, 245,245,245), 0.25);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 0;
+}
+.dot.active, .dot:hover {
+    background:var(--primary-color);
+    transform: scale(1.2);
+}
+
+
+/* ====================================================================== */
+/* ======== Thinking Outside the Box / قسم "التفكير خارج الصندوق" ======== */
+/* ====================================================================== */
+.thinking-box-section {
+    background-color: var(--background-dark); /* Match body or make slightly different */
+}
+/* Styles for .thinking-box-content, .thinking-box-text, .thinking-box-image, .stats-container, .stat-box */
+/* Generally good, minor adjustments for consistency and visual appeal */
+.thinking-box-content {
+    display: flex;
+    align-items: center;
+    gap: clamp(30px, 5vw, 50px);
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+}
+.thinking-box-text {
+    flex: 1 1 55%;
+    max-width: 100%;
+    text-align: left;
+}
+.thinking-box-text p {
+    font-size: clamp(15px, 2.2vw, 17px);
+    line-height: 1.8;
+    color: var(--text-medium);
+    margin-bottom: 20px;
+}
+.thinking-box-image {
+    flex: 1 1 40%;
+    max-width: 100%;
+    text-align: center;
+}
+.thinking-box-image img {
+    max-width: 90%;
+    height: auto;
+    max-height: 380px; /* Slightly increase max height */
+    border-radius: 10px; /* More rounding */
+    box-shadow: 0 8px 30px rgba(var(--primary-color-rgb), 0.2); /* Enhanced shadow */
+    transition: transform 0.4s ease;
+}
+.thinking-box-image img:hover {
+    transform: scale(1.03) rotate(-2deg); /* Slight tilt on hover */
+}
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Min width for stats */
+    gap: clamp(20px, 3vw, 30px);
+    margin-top: 40px;
+}
+.stat-box {
+    background: linear-gradient(145deg, rgba(var(--primary-color-rgb),0.08), rgba(var(--primary-color-rgb),0.02));
+    border: 1px solid rgba(var(--primary-color-rgb),0.15);
+    padding: 30px 25px; /* More padding */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.stat-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px var(--card-hover-glow);
+    background: linear-gradient(145deg, rgba(var(--primary-color-rgb),0.12), rgba(var(--primary-color-rgb),0.05));
+}
+.stat-box h3 {
+    font-size: clamp(32px, 5vw, 40px);
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+.stat-box p {
+    font-size: clamp(14px, 2vw, 16px);
+    color: var(--text-medium);
+    margin: 0;
+}
+
+/* ====================================================================== */
+/* ============ Portfolio Slider / قسم "أحدث المشاريع" ================= */
+/* ====================================================================== */
+/* Styles for .portfolio-slider-section, .portfolio-slider-container, .slider-wrapper, .slider-items, .slider-item, .slider-arrow */
+/* Cleaned up and refined for better 3D effect and responsiveness */
+.portfolio-slider-section {
+    background-color: var(--background-section-dark);
+    text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scroll from slider items */
+}
+.portfolio-slider-container {
+    position: relative;
+    padding: 60px 0; /* Increased padding */
+    /* Removed background image from here, items should have it or a common overlay */
+}
+.portfolio-slider-container::before { /* Optional overlay if container had a background image */
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* background-color: rgba(var(--extracted-dark-blue-rgb, 1, 43, 55), 0.8); */ /* Example if needed */
+    z-index: 0;
+}
+.slider-wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 1100px; /* Increased max width */
+    margin: 0 auto;
+    min-height: calc(var(--portfolio-item-height) + 120px); /* Adjusted min height */
+    padding: 0 60px; /* Space for arrows */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.slider-items {
+    position: relative;
+    width: var(--portfolio-item-width);
+    height: var(--portfolio-item-height);
+    perspective: 1800px; /* Increased perspective for more depth */
+}
+.slider-item {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--portfolio-transition-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity var(--portfolio-transition-duration) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); /* Enhanced shadow */
+    overflow: hidden;
+    border-radius: 12px; /* More rounded */
+    background-color: #1c1c1c;
+}
+.slider-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.slider-item:hover img {
+    transform: scale(1.05); /* Zoom image inside item on hover */
+}
+.slider-item.center {
+    z-index: 3; opacity: 1;
+    transform: translateX(0) translateZ(0) scale(1); /* Added translateZ for 3D */
+    pointer-events: auto;
+}
+.slider-item.left-side {
+    z-index: 2; opacity: 0.6; /* Less opacity for side items */
+    transform: translateX(-70%) translateZ(-150px) rotateY(35deg) scale(0.8); /* More 3D */
+}
+.slider-item.right-side {
+    z-index: 2; opacity: 0.6;
+    transform: translateX(70%) translateZ(-150px) rotateY(-35deg) scale(0.8); /* More 3D */
+}
+.slider-item.hidden {
+    opacity: 0; z-index: 0;
+    transform: scale(0.6) translateZ(-300px); /* Scale down and push back */
+}
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.08); /* More subtle arrows */
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    z-index: 5;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 50%;
+    width: 50px; height: 50px;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(3px); /* Subtle blur on arrows */
+}
+.slider-arrow:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.7);
+    transform: translateY(-50%) scale(1.15);
+}
+.portfolio-slider-section .left-arrow { left: 10px; } /* Adjust position */
+.portfolio-slider-section .right-arrow { right: 10px; }
+
+
+/* ====================================================================== */
+/* ============== Testimonials Section / قسم "آراء العملاء" ============= */
+/* ====================================================================== */
+/* Styles for .testimonials-section, .testimonial-content, .testimonial-text, .testimonial-slider, .main-avatar, .small-avatars, .arrow */
+/* Cleaned and refined for visual consistency and better interaction */
+.testimonials-section { /* Has .container */
+  background-color: var(--background-dark); /* Match body or slightly different */
+  color: var(--text-light);
+  padding-top: 80px;
+  padding-bottom: 120px; /* More space for small avatars */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-content .subtitle {
+  font-size: clamp(17px, 2.8vw, 20px);
+  margin-bottom: 40px; /* More space */
+}
+.testimonial-text {
+  font-size: clamp(17px, 2.5vw, 19px); /* Responsive text */
+  font-style: italic; /* Italic for quotes */
+  max-width: 750px;
+  margin: 25px auto;
+  color: var(--text-medium);
+  min-height: 130px;
+  line-height: 1.8;
+  padding: 0 10px; /* Ensure text doesn't touch edges on small viewports inside its max-width */
+}
+.testimonial-content h4 { /* Client Name */
+  margin-top: 30px;
+  font-weight: bold;
+  color: var(--primary-color);
+  min-height: 24px;
+  font-size: clamp(16px, 2.2vw, 18px);
+}
+.testimonial-slider {
+  margin-top: 60px; /* More space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: clamp(20px, 4vw, 35px); /* Responsive gap */
+  width: 100%;
+  max-width: 700px; /* Limit width of slider content */
+  margin-left: auto;
+  margin-right: auto;
+}
+.main-avatar {
+  width: clamp(130px, 20vw, 160px); /* Responsive avatar */
+  height: clamp(130px, 20vw, 160px);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid var(--primary-color); /* Thicker, colored border */
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 0 25px rgba(var(--primary-color-rgb),0.3);
+  transition: transform 0.4s ease;
+}
+.main-avatar:hover {
+    transform: scale(1.05);
+}
+.main-avatar img {
+  width: 100%; height: 100%;
+  object-fit: contain; /* Cover ensures image fills the circle */
+}
+.small-avatars {
+  position: absolute;
+  bottom: -60px; /* Adjust for larger main avatar and potential spacing */
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  display: flex;
+  justify-content: center;
+  gap: clamp(10px, 2vw, 18px); /* Responsive gap */
+  padding: 0 10px;
+  z-index: 1;
+}
+.small-avatars img {
+  width: clamp(50px, 8vw, 65px); /* Responsive small avatars */
+  height: clamp(50px, 8vw, 65px);
+  border-radius: 50%;
+  border: 3px solid var(--text-light);
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, border-color 0.3s ease;
+  opacity: 0.6;
+}
+.small-avatars img.active,
+.small-avatars img:hover {
+  opacity: 1;
+  transform: scale(1.12);
+  box-shadow: 0 0 15px var(--primary-color);
+  border-color: var(--primary-color);
+}
+.testimonials-section .arrow {
+  background: rgba(var(--primary-color-rgb), 0.1);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(var(--primary-color-rgb), 0.2);
+  font-size: 28px;
+  color: var(--text-light);
+  cursor: pointer;
+  z-index: 3;
+  padding: 0;
+  width: 45px; height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+.testimonials-section .arrow:hover {
+    color: var(--background-dark);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+/* Fade effect for text and name, already in JS, CSS just needs the .fade class */
+.testimonial-text.fade,
+#clientName.fade,
+#mainAvatar.fade { /* Target mainAvatar itself for fade if image is direct child, or img if nested */
+  opacity: 0;
+}
+#mainAvatar.fade img { /* If mainAvatar is a div and img is inside */
+    opacity: 0;
+}
+#mainAvatar, #mainAvatar img, .testimonial-text, #clientName {
+    transition: opacity 0.4s ease-in-out;
+}
+
+
+/* ====================================================================== */
+/* ================= My Toolkit Section / قسم "أدواتي" ================== */
+/* ====================================================================== */
+.my-toolkit-section { /* Changed from #tools-section for consistency */
+  background-color: var(--background-section-dark);
+  color: var(--text-medium);
+  text-align: center;
+}
+
+.toolkit-category { /* Category container e.g., Frontend, Backend */
+  margin-bottom: 60px; /* Space between categories */
+  text-align: left; /* Align category title to the left */
+}
+.toolkit-category:last-child {
+    margin-bottom: 0;
+}
+
+.toolkit-category h3 { /* Category title */
+  font-size: clamp(20px, 3vw, 24px); /* Responsive title size */
+  color: var(--primary-color);
+  margin-bottom: 30px; /* Space below category title */
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(var(--primary-color-rgb), 0.2);
+  display: inline-block; /* So border-bottom only spans text width */
+}
+
+.toolkit-grid { /* Grid for tool cards */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+  gap: clamp(20px, 3vw, 30px); /* Responsive gap */
+}
+
+.tool-card { /* Individual tool card */
+  background-color: rgba(var(--primary-color-rgb), 0.03);
+  border: 1px solid rgba(var(--primary-color-rgb), 0.1);
+  border-radius: 10px;
+  padding: 25px; /* Increased padding */
+  text-align: center;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 180px; /* Minimum height for consistency */
+  display: flex; /* To align front content */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: default; /* Default cursor as hover shows back */
+}
+
+.tool-card:hover {
+  transform: translateY(-10px) scale(1.02); /* Lift and slight grow */
+  box-shadow: 0 12px 30px var(--card-hover-glow);
+  background-color: rgba(var(--primary-color-rgb), 0.06);
+}
+
+.tool-card-front,
+.tool-card-back {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  backface-visibility: hidden; /* For smoother flip/fade transitions */
+  position: absolute; /* Both front and back are absolutely positioned */
+  top: 0;
+  left: 0;
+}
+
+.tool-card-front { /* Content visible by default */
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.tool-card-back { /* Content hidden, shown on hover */
+  background-color: rgba(var(--extracted-dark-blue-rgb, 1, 43, 55), 0.97); /* Darker overlay */
+  color: var(--text-light);
+  padding: 20px; /* Padding for back content */
+  box-sizing: border-box;
+  opacity: 0;
+  transform: rotateY(180deg); /* Start rotated for flip effect */
+}
+
+.tool-card:hover .tool-card-front {
+  opacity: 0;
+  transform: rotateY(-180deg); /* Flip front away */
+}
+
+.tool-card:hover .tool-card-back {
+  opacity: 1;
+  transform: rotateY(0deg); /* Flip back in */
+}
+
+.tool-card-front i, .tool-card-front .fab, .tool-card-front .fas { /* Icon styling */
+  font-size: clamp(40px, 6vw, 52px); /* Responsive icon size */
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.tool-card:hover .tool-card-front i,
+.tool-card:hover .tool-card-front .fab,
+.tool-card:hover .tool-card-front .fas {
+    /* color: var(--text-light); Keep primary color or change as preferred */
+    /* transform: scale(1.1); Can be distracting with flip */
+}
+
+.tool-card-front span { /* Tool name on front */
+  font-size: clamp(15px, 2.2vw, 17px);
+  color: var(--text-light);
+  font-weight: bold;
+}
+
+.tool-card-back h4 { /* Tool name on back */
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  font-size: clamp(17px, 2.5vw, 19px);
+}
+.tool-card-back p { /* Tool description */
+  font-size: clamp(13px, 1.8vw, 14px);
+  margin-bottom: 15px;
+  line-height: 1.5;
+  flex-grow: 1; /* Allow description to take available space */
+}
+.skill-level { /* Proficiency level container */
+  font-size: clamp(12px, 1.7vw, 13px);
+  color: var(--text-medium);
+}
+.skill-level .stars { /* Rating stars */
+  color: var(--star-color);
+  font-size: 1.1em; /* Slightly larger stars */
+  letter-spacing: 1px; /* Space between stars */
+}
+
+/* Responsive Toolkit Section / قسم أدوات متجاوب */
+@media (max-width: 768px) {
+  .toolkit-category h3 { font-size: clamp(18px, 2.8vw, 22px); margin-bottom: 25px; }
+  .toolkit-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: clamp(15px, 2.5vw, 25px); }
+  .tool-card { padding: 20px; min-height: 170px;}
+  .tool-card-front i, .tool-card-front .fab, .tool-card-front .fas { font-size: clamp(36px, 5vw, 48px); margin-bottom: 12px; }
+  .tool-card-front span { font-size: clamp(14px, 2vw, 16px); }
+  .tool-card-back h4 { font-size: clamp(16px, 2.2vw, 18px); margin-bottom: 10px; }
+  .tool-card-back p { font-size: clamp(12px, 1.7vw, 13px); margin-bottom: 12px; }
+}
+@media (max-width: 480px) {
+  .toolkit-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } /* Smaller minmax for cards */
+  .tool-card { min-height: 160px; padding: 15px; }
+  .tool-card-front i, .tool-card-front .fab, .tool-card-front .fas { font-size: clamp(32px, 4.5vw, 44px); }
+}
+
+
+/* ====================================================================== */
+/* ============ Contact & Footer / قسم "اتصل بي" والتذييل ============== */
+/* ====================================================================== */
+/* Styles for #contact-footer-section, .contact-content, .contact-info, .contact-form, .footer-divider, .footer-text */
+/* General cleanup and consistency check */
+#contact-footer-section {
+    background-color: var(--background-dark); /* Consistent dark background */
+    color: var(--text-medium);
+    text-align: center;
+}
+#contact-footer-section h2 {
+    /* Uses global h2 */
+}
+#contact-footer-section .section-subtitle {
+    /* Uses global .section-subtitle */
+    margin-bottom: 60px; /* More space before contact content */
+}
+.contact-content {
+    display: flex;
+    gap: clamp(30px, 5vw, 50px); /* Responsive gap */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+    text-align: left; /* Align text inside info and form to left */
+}
+.contact-info, .contact-form {
+    flex: 1 1 400px; /* Allow them to grow and wrap */
+    max-width: 550px; /* Max width for each column */
+}
+.contact-info h3, .contact-form h3 {
+    font-size: clamp(20px, 3vw, 24px);
+    color: var(--text-light);
+    margin-bottom: 25px; /* Increased margin */
+}
+.contact-info p {
+    margin-bottom: 18px; /* Increased margin */
+    font-size: clamp(15px, 2.2vw, 17px);
+    color: var(--text-medium);
+    display: flex; /* For icon alignment */
+    align-items: center;
+    gap: 12px; /* Space between icon and text */
+}
+.contact-info p i {
+    color: var(--primary-color);
+    width: 22px; /* Ensure consistent icon spacing */
+    text-align: center;
+    font-size: 1.1em; /* Slightly larger icons */
+}
+.contact-info a {
+    color: var(--text-medium);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.contact-info a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+.contact-info .social-links { /* Using global .social-links style, ensure it's appropriate */
+    margin-top: 30px;
+    justify-content: flex-start;
+}
+.contact-form {
+    background-color: rgba(var(--primary-color-rgb), 0.02); /* Very subtle background */
+    padding: clamp(25px, 4vw, 40px); /* Responsive padding */
+    border-radius: 10px;
+    border: 1px solid rgba(var(--primary-color-rgb), 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.contact-form h3 {
+    text-align: center; /* Center form title */
+}
+.form-group {
+    margin-bottom: 22px; /* Increased margin */
+}
+.form-group label {
+    display: block;
+    margin-bottom: 10px; /* Increased margin */
+    font-size: clamp(14px, 2vw, 16px);
+    color: var(--text-light);
+    font-weight: 500; /* Normal weight for labels */
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="subject"],
+.form-group textarea {
+    width: 100%;
+    padding: 14px; /* Increased padding */
+    border: 1px solid rgba(var(--text-light-rgb, 245,245,245), 0.2); /* Lighter border */
+    background-color: rgba(var(--background-dark), 0.3); /* Darker, slightly transparent fields */
+    color: var(--text-light);
+    border-radius: 6px; /* More rounded */
+    font-size: clamp(15px, 2.2vw, 16px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(2px); /* Subtle blur on fields */
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="subject"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2); /* Focus ring */
+    outline: none;
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 130px; /* Increased min-height */
+}
+.send-message-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    padding: 14px 30px; /* Larger button */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: clamp(15px, 2.2vw, 17px);
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    width: auto;
+}
+.send-message-btn:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
+}
+.footer-divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(var(--text-light-rgb, 245,245,245), 0.1);
+    margin: 70px auto 35px auto; /* Increased margins */
+    width: 80%;
+    max-width: 700px; /* Wider divider */
+}
+.footer-text {
+    text-align: center;
+}
+.footer-text p {
+    font-size: clamp(13px, 1.8vw, 15px);
+    color: var(--text-medium);
+    margin: 0;
+}
+/* Responsive Contact & Footer from previous step, ensure clean */
+@media (max-width: 768px) {
+    .contact-content { flex-direction: column; gap: 40px; }
+    .contact-info, .contact-form { max-width: 100%; padding: 25px; }
+    .contact-info .social-links { justify-content: center; }
+}
+
+/* ====================================================================== */
+/* ================= Starfall Animation / تأثير النجوم المتساقطة ========= */
+/* ====================================================================== */
+.star {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent stars */
+    border-radius: 50%;
+    animation: starfall linear infinite;
+    opacity: 0;
+    z-index: -2; /* Ensure it's behind all content */
+    pointer-events: none; /* Stars should not be interactive */
+}
+
+@keyframes starfall {
+    0% {
+        transform: translateY(-5vh) translateX(0); /* Start slightly above viewport */
+        opacity: 0;
+    }
+    10%, 20% { /* Fade in sooner and stay a bit longer */
+        opacity: 1;
+    }
+    90%, 100% { /* Fade out towards the end */
+        transform: translateY(105vh) translateX(10vw); /* Ensure they go off-screen */
+        opacity: 0;
+    }
+}
